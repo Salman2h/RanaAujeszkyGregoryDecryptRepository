@@ -37,12 +37,15 @@
             this.cbDelimiter = new System.Windows.Forms.ComboBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblCaption = new System.Windows.Forms.Label();
+            this.loadDictionaryButton = new System.Windows.Forms.Button();
+            this.loadDictionaryLabel = new System.Windows.Forms.Label();
+            this.txtDictFileName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cipherLabel
             // 
             this.cipherLabel.AutoSize = true;
-            this.cipherLabel.Location = new System.Drawing.Point(21, 38);
+            this.cipherLabel.Location = new System.Drawing.Point(26, 109);
             this.cipherLabel.Name = "cipherLabel";
             this.cipherLabel.Size = new System.Drawing.Size(65, 13);
             this.cipherLabel.TabIndex = 3;
@@ -50,24 +53,24 @@
             // 
             // cipherTextBox
             // 
-            this.cipherTextBox.Location = new System.Drawing.Point(24, 54);
+            this.cipherTextBox.Location = new System.Drawing.Point(29, 125);
             this.cipherTextBox.Multiline = true;
             this.cipherTextBox.Name = "cipherTextBox";
-            this.cipherTextBox.Size = new System.Drawing.Size(375, 91);
+            this.cipherTextBox.Size = new System.Drawing.Size(375, 98);
             this.cipherTextBox.TabIndex = 4;
             // 
             // plainTextBox
             // 
-            this.plainTextBox.Location = new System.Drawing.Point(24, 223);
+            this.plainTextBox.Location = new System.Drawing.Point(29, 294);
             this.plainTextBox.Multiline = true;
             this.plainTextBox.Name = "plainTextBox";
-            this.plainTextBox.Size = new System.Drawing.Size(375, 54);
+            this.plainTextBox.Size = new System.Drawing.Size(375, 61);
             this.plainTextBox.TabIndex = 6;
             // 
             // plainTextLabel
             // 
             this.plainTextLabel.AutoSize = true;
-            this.plainTextLabel.Location = new System.Drawing.Point(21, 207);
+            this.plainTextLabel.Location = new System.Drawing.Point(26, 278);
             this.plainTextLabel.Name = "plainTextLabel";
             this.plainTextLabel.Size = new System.Drawing.Size(54, 13);
             this.plainTextLabel.TabIndex = 5;
@@ -75,9 +78,9 @@
             // 
             // decryptButton
             // 
-            this.decryptButton.Location = new System.Drawing.Point(244, 163);
+            this.decryptButton.Location = new System.Drawing.Point(249, 234);
             this.decryptButton.Name = "decryptButton";
-            this.decryptButton.Size = new System.Drawing.Size(155, 23);
+            this.decryptButton.Size = new System.Drawing.Size(155, 30);
             this.decryptButton.TabIndex = 9;
             this.decryptButton.Text = "Decrypt";
             this.decryptButton.UseVisualStyleBackColor = true;
@@ -86,7 +89,7 @@
             // lblDelimiter
             // 
             this.lblDelimiter.AutoSize = true;
-            this.lblDelimiter.Location = new System.Drawing.Point(21, 168);
+            this.lblDelimiter.Location = new System.Drawing.Point(26, 239);
             this.lblDelimiter.Name = "lblDelimiter";
             this.lblDelimiter.Size = new System.Drawing.Size(47, 13);
             this.lblDelimiter.TabIndex = 12;
@@ -99,7 +102,7 @@
             "Comma",
             "Tab",
             "Space"});
-            this.cbDelimiter.Location = new System.Drawing.Point(74, 165);
+            this.cbDelimiter.Location = new System.Drawing.Point(79, 236);
             this.cbDelimiter.Name = "cbDelimiter";
             this.cbDelimiter.Size = new System.Drawing.Size(149, 21);
             this.cbDelimiter.TabIndex = 13;
@@ -108,9 +111,9 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(137, 292);
+            this.btnClose.Location = new System.Drawing.Point(142, 363);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(155, 23);
+            this.btnClose.Size = new System.Drawing.Size(155, 30);
             this.btnClose.TabIndex = 14;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -127,11 +130,41 @@
             this.lblCaption.Text = "Permutation Cryptanalysis";
             this.lblCaption.Click += new System.EventHandler(this.label1_Click);
             // 
+            // loadDictionaryButton
+            // 
+            this.loadDictionaryButton.Location = new System.Drawing.Point(350, 71);
+            this.loadDictionaryButton.Name = "loadDictionaryButton";
+            this.loadDictionaryButton.Size = new System.Drawing.Size(54, 23);
+            this.loadDictionaryButton.TabIndex = 16;
+            this.loadDictionaryButton.Text = "- - ";
+            this.loadDictionaryButton.UseVisualStyleBackColor = true;
+            this.loadDictionaryButton.Click += new System.EventHandler(this.loadDictionaryButton_Click);
+            // 
+            // loadDictionaryLabel
+            // 
+            this.loadDictionaryLabel.AutoSize = true;
+            this.loadDictionaryLabel.Location = new System.Drawing.Point(26, 55);
+            this.loadDictionaryLabel.Name = "loadDictionaryLabel";
+            this.loadDictionaryLabel.Size = new System.Drawing.Size(81, 13);
+            this.loadDictionaryLabel.TabIndex = 17;
+            this.loadDictionaryLabel.Text = "Load Dictionary";
+            // 
+            // txtDictFileName
+            // 
+            this.txtDictFileName.Enabled = false;
+            this.txtDictFileName.Location = new System.Drawing.Point(29, 74);
+            this.txtDictFileName.Name = "txtDictFileName";
+            this.txtDictFileName.Size = new System.Drawing.Size(314, 20);
+            this.txtDictFileName.TabIndex = 18;
+            // 
             // UserInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 327);
+            this.ClientSize = new System.Drawing.Size(440, 405);
+            this.Controls.Add(this.txtDictFileName);
+            this.Controls.Add(this.loadDictionaryLabel);
+            this.Controls.Add(this.loadDictionaryButton);
             this.Controls.Add(this.lblCaption);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.cbDelimiter);
@@ -142,7 +175,7 @@
             this.Controls.Add(this.cipherTextBox);
             this.Controls.Add(this.cipherLabel);
             this.Name = "UserInput";
-            this.Text = "Rana-Aujeszky-Gregory-Decrypt";
+            this.Text = "Rashid-Aujeszky-Gregory-Decrypt";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,6 +191,9 @@
         private System.Windows.Forms.ComboBox cbDelimiter;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblCaption;
+        private System.Windows.Forms.Button loadDictionaryButton;
+        private System.Windows.Forms.Label loadDictionaryLabel;
+        private System.Windows.Forms.TextBox txtDictFileName;
     }
 }
 
