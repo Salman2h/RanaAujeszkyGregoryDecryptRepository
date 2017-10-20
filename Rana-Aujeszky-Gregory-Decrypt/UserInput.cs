@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -36,12 +35,19 @@ namespace Rana_Aujeszky_Gregory_Decrypt
         {
             if (String.IsNullOrEmpty(filepath))
             {
-                MessageBox.Show("Please load dictionary first", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);              
+                MessageBox.Show("Please load dictionary first", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }            
+
+            plainTextList = Helper.LoadDictionary(filepath);
+
+            if (!(plainTextList.Count == 5 || plainTextList.Count == 20))
+            {
+                MessageBox.Show("Please provide the correct plaintext file.\n It must be either 5 line candidate plaintexts or 20 line dictionary words.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            plainTextList = Helper.LoadDictionary(filepath);
-            string[] cipherText = cipherTextBox.Text.Split(delimiter);
+                string[] cipherText = cipherTextBox.Text.Split(delimiter);
 
             if (plainTextList.Count == 5)
             {
