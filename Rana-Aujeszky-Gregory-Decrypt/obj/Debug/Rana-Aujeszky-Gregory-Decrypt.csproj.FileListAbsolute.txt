@@ -29,3 +29,4 @@ C:\Users\rrashid\Desktop\Salman\RanaAujeszkyGregoryDecryptRepository\Rana-Aujesz
 C:\Users\rrashid\Desktop\Salman\RanaAujeszkyGregoryDecryptRepository\Rana-Aujeszky-Gregory-Decrypt\obj\Debug\Rana-Aujeszky-Gregory-Decrypt.csproj.GenerateResource.Cache
 C:\Users\rrashid\Desktop\Salman\RanaAujeszkyGregoryDecryptRepository\Rana-Aujeszky-Gregory-Decrypt\obj\Debug\Rashid-Aujeszky-Gregory-Decrypt.exe
 C:\Users\rrashid\Desktop\Salman\RanaAujeszkyGregoryDecryptRepository\Rana-Aujeszky-Gregory-Decrypt\obj\Debug\Rashid-Aujeszky-Gregory-Decrypt.pdb
+C:\Users\rrashid\Desktop\Salman\RanaAujeszkyGregoryDecryptRepository\Rana-Aujeszky-Gregory-Decrypt\obj\Debug\Rana-Aujeszky-Gregory-Decrypt.csprojResolveAssemblyReference.cache

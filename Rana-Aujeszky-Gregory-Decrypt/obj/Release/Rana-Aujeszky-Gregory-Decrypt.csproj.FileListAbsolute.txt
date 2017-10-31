@@ -1,6 +1,5 @@
 C:\Users\rrashid\Desktop\Salman\RanaAujeszkyGregoryDecryptRepository\Rana-Aujeszky-Gregory-Decrypt\bin\Release\Rashid-Aujeszky-Gregory-Decrypt.exe
 C:\Users\rrashid\Desktop\Salman\RanaAujeszkyGregoryDecryptRepository\Rana-Aujeszky-Gregory-Decrypt\bin\Release\Rashid-Aujeszky-Gregory-Decrypt.pdb
-C:\Users\rrashid\Desktop\Salman\RanaAujeszkyGregoryDecryptRepository\Rana-Aujeszky-Gregory-Decrypt\obj\Release\Rana-Aujeszky-Gregory-Decrypt.csprojResolveAssemblyReference.cache
 C:\Users\rrashid\Desktop\Salman\RanaAujeszkyGregoryDecryptRepository\Rana-Aujeszky-Gregory-Decrypt\obj\Release\Rana_Aujeszky_Gregory_Decrypt.UserInput.resources
 C:\Users\rrashid\Desktop\Salman\RanaAujeszkyGregoryDecryptRepository\Rana-Aujeszky-Gregory-Decrypt\obj\Release\Rashid_Aujeszky_Gregory_Decrypt.Properties.Resources.resources
 C:\Users\rrashid\Desktop\Salman\RanaAujeszkyGregoryDecryptRepository\Rana-Aujeszky-Gregory-Decrypt\obj\Release\Rana-Aujeszky-Gregory-Decrypt.csproj.GenerateResource.Cache

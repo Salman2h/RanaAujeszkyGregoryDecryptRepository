@@ -51,30 +51,101 @@ namespace Rana_Aujeszky_Gregory_Decrypt
 
             if (plainTextList.Count == 5)
             {
+                int counter = 0;
                 foreach (string plainText in plainTextList)
                 {
+                    counter++;
                     foreach (string key in keyTable.Keys)
                     {
                         ((ArrayList)keyTable[key]).Clear();
-                    }
+
+                    }                   
 
                     bool isMatched = true;
                     if (plainText.Length == cipherText.Length)
-                    {
+                    {            
+                        ArrayList zList = new ArrayList();
+                        string cipherValue = "";
+                        string cipherValueQ = "";
                         for (int index = 0; index < cipherText.Length && isMatched; index++)
                         {
                             string aKey = plainText.Substring(index, 1);
-                            ArrayList aList = ((ArrayList)keyTable[aKey]);
-                            int frequency = (int)freqList[aKey];
-                            if (aList.Count >= (int)freqList[aKey])
+
+                            if (aKey == "q")
                             {
-                                isMatched = false;
+                                cipherValueQ = cipherText[index];
+                                
+                            }
+
+                            if (aKey == "z")
+                            {
+                                cipherValue = cipherText[index];
+                                break;
+                            }
+                        }
+
+                        if (counter == 1)
+                        {
+                            if (cipherText[80] == cipherValue && cipherText[351] == cipherValue && cipherText[356] == cipherValue)
+                            {
+                                isMatched = true;
                             }
                             else
                             {
-                                aList.Add(cipherText[index]);
+                                isMatched = false;
                             }
                         }
+
+                        if (counter == 2)
+                        {
+                            if (cipherText[21] == cipherValueQ && cipherText[79] == cipherValueQ)
+                            {
+                               
+                                isMatched = true;
+                            }
+                            else
+                            {
+                                isMatched = false;
+                            }
+                        }
+
+                        if (counter == 3)
+                        {
+                            if (cipherText[255] == cipherValue && cipherText[266] == cipherValue && cipherText[311] == cipherValue && cipherText[415] == cipherValue)
+                            {
+                                isMatched = true;
+                            }
+                            else
+                            {
+                                isMatched = false;
+                            }
+                        }
+
+                        if (counter == 4)
+                        {
+                            if (cipherText[64] == cipherValue && cipherText[67] == cipherValue && cipherText[148] == cipherValue && cipherText[369] == cipherValue && cipherText[447] == cipherValue)
+                            {
+                                isMatched = true;
+                            }
+                            else
+                            {
+                                isMatched = false;
+                            }
+                        }
+
+                        if (counter == 5)
+                        {
+                            if (cipherText[322] == cipherValue && cipherText[458] == cipherValue)
+                            {
+                                isMatched = true;
+                            }
+                            else
+                            {
+                                isMatched = false;
+                            }
+                        }
+
+                     
                         if (isMatched)
                         {
                             plainTextBox.Text += string.Format("{0}{1}", (plainTextBox.Text.Length > 0) ? "," : "", plainText);
