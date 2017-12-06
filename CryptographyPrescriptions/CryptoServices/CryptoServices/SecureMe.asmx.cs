@@ -70,13 +70,51 @@ namespace CryptoServices
             passwordBytes = SHA256.Create().ComputeHash(passwordBytes);
 
             byte[] bytesDecrypted = AES_Decrypt(bytesToBeDecrypted, passwordBytes);
-
             string result = Encoding.UTF8.GetString(bytesDecrypted);
 
             return result;
         }
 
+        // RSA
 
+        [WebMethod]
+        public string RSADecrypt(string encryptedText)
+        {          
+            // Get the bytes of the string
+            byte[] bytesToBeDecrypted = Convert.FromBase64String(encryptedText);
+            RSAPrivKeyClient rSAPrivKeyClient = new RSAPrivKeyClient();
+            byte[] bytesDecrypted = rSAPrivKeyClient.Decrypt(bytesToBeDecrypted);
+            string result = Encoding.UTF8.GetString(bytesDecrypted);
+
+            return result;
+        }
+
+        [WebMethod]
+        public string RSAEncrypt(string plainText)
+        {
+            // Get the bytes of the string
+            byte[] bytesToBeEncrypted = Encoding.UTF8.GetBytes(plainText);
+
+            RSAPrivKeyClient rSAPrivKeyClient = new RSAPrivKeyClient();
+            var pk = rSAPrivKeyClient.PublicParameters;
+            
+            RSAPubKeyClient rSAPubKeyClient = new RSAPubKeyClient(pk);
+            var encrypted = rSAPubKeyClient.Encrypt(bytesToBeEncrypted);                 
+
+            string result = Convert.ToBase64String(encrypted);
+
+            return result;
+        }
+
+        [WebMethod]
+        public RSAParameters RSAPublicParameters()
+        {                    
+            RSAPrivKeyClient rSAPrivKeyClient = new RSAPrivKeyClient();
+            RSAParameters rSAParameters = rSAPrivKeyClient.PublicParameters;                 
+            return rSAParameters;
+        }
+
+               
         // private methods
 
 
@@ -113,7 +151,7 @@ namespace CryptoServices
             return encryptedBytes;
         }
 
-        public byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
+        private byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
         {
             byte[] decryptedBytes = null;
 
@@ -146,7 +184,7 @@ namespace CryptoServices
             return decryptedBytes;
         }
 
-        public static byte[] GetRandomBytes()
+        private static byte[] GetRandomBytes()
         {
             int saltLength = GetSaltLength();
             byte[] ba = new byte[saltLength];
@@ -154,9 +192,21 @@ namespace CryptoServices
             return ba;
         }
 
-        public static int GetSaltLength()
+        private static int GetSaltLength()
         {
             return 8;
+        }
+
+        private void RSAPublic()
+        {
+            var bob = new RSAPrivKeyClient();
+            var pk = bob.PublicParameters;
+            var alice = new RSAPubKeyClient(pk);
+            var encrypted = alice.Encrypt(new byte[] { 0, 1, 2, 3 });
+            var decrypted = bob.Decrypt(encrypted);
+
+            Console.WriteLine(decrypted);
+
         }
 
     }
